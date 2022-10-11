@@ -1,10 +1,22 @@
 let http = require("http")
 let fs = require("fs")
-
+let _ = require("lodash")
 
 
 let server = http.createServer((req, res) => {
-    console.log(req.url)
+
+    // lodash
+    const num = _.random(4, 100)
+    console.log(num)
+
+    //lodash firing fucntion once only
+    let greet = _.once(() => {
+        console.log("hello world ")
+    })
+
+    greet()
+    greet()
+
 
     // set header content type
     res.setHeader("Content-Type", "text/html")
